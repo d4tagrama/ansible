@@ -2,13 +2,13 @@
 - hosts: 192.168.90.93
   become: yes
   tasks:
-  - name: Install repot epel
+  - name: Add repot epel
     yum:
       name:
         - epel-release
       state: present
 
-  - name: Install repot remi
+  - name: Add repot remi
     yum:
       name:
         - http://rpms.remirepo.net/enterprise/remi-release-{{ major_version }}.rpm
@@ -34,7 +34,7 @@
         - php-odbc
         - php-curl
       state: present     
-      enablerepo: "remi,remi-php72"
+      enablerepo: "remi,{{ enablerepo }}"
 
        
   - name: Install httpd (Apache)
