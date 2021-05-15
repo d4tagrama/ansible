@@ -1,0 +1,55 @@
+---
+- hosts: 192.168.90.93
+  become: yes
+  tasks:
+  - name: Install repot epel
+    yum:
+      name:
+        - epel-release
+      state: present
+
+  - name: Install repot remi
+    yum:
+      name:
+        - http://rpms.remirepo.net/enterprise/remi-release-{{ major_version }}.rpm
+      state: present
+      
+  - name: Install php72
+    yum: 
+      name: 
+        - php
+        - php-fpm 
+        - php-gd 
+        - php-json 
+        - php-mbstring 
+        - php-mysqlnd
+        - php-xml 
+        - php-xmlrpc 
+        - php-opcache
+        - php-pdo
+        - php-xml
+        - php-mbstring
+        - php-pgsql
+        - php-mysql
+        - php-odbc
+        - php-curl
+      state: present     
+      enablerepo: "remi,remi-php72"
+
+       
+  - name: Install httpd (Apache)
+    yum:
+      name: httpd
+      state: present
+    become: yes
+    
+  
+  - name: Enable systemctl (httpd)
+    ansible.builtin.service:
+      name: httpd
+      enabled: yes
+        
+  - name: Start httpd service
+    ansible.builtin.service:
+      name: httpd
+      state: started
