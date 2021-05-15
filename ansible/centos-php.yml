@@ -53,3 +53,7 @@
     ansible.builtin.service:
       name: httpd
       state: started
+      
+  - name: Set timezone to America/Merida
+    timezone:
+      name: America/Merida
