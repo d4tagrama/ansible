@@ -1,26 +1,29 @@
 
-Lista de archivos:
-
-* [CentOS-PHP](ansible/centos-php.yml)
-
-
-### Uso rapido
-
-Agregar la IP en el archivo `/etc/ansible/hosts` y ejecutar el comando:
-```bash
-    ansible-playbook -u usradm <playbook.yml>  --extra-var "major_version=<major_version>"
-```
-
-Parametros:
-* `<playbook.yml>`: Archivo playbook para aplicar
-* `<major_version>`: Variable general para indicar la versión mayor de PHP ejemplo: 7
+- **File list**
+	- [CentOS-PHP](ansible/centos-php.yml)
 
 
+## Quick Start
 
-Examples:
+Add IP address of all hosts to `/etc/ansible/hosts`  and  execute the playbook you need:
 
-1. Instalar php 7.2
 
-	`ansible-playbook -u usradm centos-php.yml  --extra-vars '{"major_version":7,"enablerepo":remi-php72}'`
+- **Install php 7.X**
+
+	Execute the command:
+
+		ansible-playbook -u <user> <playbook.yml>  --extra-var "major_version=<major_version>"
+	
+	 - `<user>`: Specify the user to execute the playbook. The user need `sudo` privileges to run
+	 - `<playbook.yml>`: Playbook file
+	 - `<major_version>`: Major version variable if you are using multiple vars use `--extra-vars '{"major_version":7,"enablerepo":remi-
+php72}'`
+
+
+## Examples:
+
+- Install php 7.2:
+
+		ansible-playbook -u usradm centos-php.yml  --extra-vars '{"major_version":7,"enablerepo":remi-php72}'
 
 
