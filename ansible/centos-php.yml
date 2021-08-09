@@ -39,11 +39,17 @@
        
   - name: Install httpd (Apache)
     yum:
-      name: httpd
+      name: 
+        - httpd
+        - httpd-itk
       state: present
     become: yes
     
-  
+  - name: Add httpd mods
+    yum:
+      name:
+        - mod_ssl
+
   - name: Enable systemctl (httpd)
     ansible.builtin.service:
       name: httpd
@@ -53,7 +59,10 @@
     ansible.builtin.service:
       name: httpd
       state: started
-      
+
+    
+
+
   - name: Set timezone to America/Merida
     timezone:
       name: America/Merida
