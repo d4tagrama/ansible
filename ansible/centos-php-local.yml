@@ -1,0 +1,69 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  tasks:
+  - name: Add repot epel
+    yum:
+      name:
+        - epel-release
+      state: present
+
+  - name: Add repot remi
+    yum:
+      name:
+        - http://rpms.remirepo.net/enterprise/remi-release-{{ major_version }}.rpm
+      state: present
+      
+  - name: Install php
+    yum: 
+      name: 
+        - php
+        - php-fpm 
+        - php-gd 
+        - php-json 
+        - php-mbstring 
+        - php-mysqlnd
+        - php-xml 
+        - php-xmlrpc 
+        - php-opcache
+        - php-pdo
+        - php-xml
+        - php-mbstring
+        - php-pgsql
+        - php-mysql
+        - php-odbc
+        - php-curl
+      state: present     
+      enablerepo: "remi,{{ enablerepo }}"
+
+       
+  - name: Install httpd (Apache)
+    yum:
+      name: 
+        - httpd
+        - httpd-itk
+      state: present
+    become: yes
+    
+  - name: Add httpd mods
+    yum:
+      name:
+        - mod_ssl
+
+  - name: Enable systemctl (httpd)
+    ansible.builtin.service:
+      name: httpd
+      enabled: yes
+        
+  - name: Start httpd service
+    ansible.builtin.service:
+      name: httpd
+      state: started
+
+    
+
+
+  - name: Set timezone to America/Merida
+    timezone:
+      name: America/Merida
