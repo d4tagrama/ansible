@@ -1,5 +1,5 @@
 ---
-- hosts: 192.168.90.93
+- hosts: web
   become: yes
   tasks:
   - name: Add repot epel
@@ -14,7 +14,7 @@
         - http://rpms.remirepo.net/enterprise/remi-release-{{ major_version }}.rpm
       state: present
       
-  - name: Install php72
+  - name: Install php
     yum: 
       name: 
         - php
