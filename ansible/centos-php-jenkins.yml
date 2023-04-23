@@ -10,7 +10,7 @@
   - name: Add repot remi
     yum:
       name:
-        - http://rpms.remirepo.net/enterprise/remi-release-{{ major_version }}.rpm
+        - http://rpms.remirepo.net/enterprise/remi-release-jnk_var__major_version.rpm
       state: present
       
   - name: Install php
@@ -33,7 +33,7 @@
         - php-odbc
         - php-curl
       state: present     
-      enablerepo: "remi,{{ enablerepo }}"
+      enablerepo: "remi,jnk_var_enablerepo"
 
        
   - name: Install httpd (Apache)
