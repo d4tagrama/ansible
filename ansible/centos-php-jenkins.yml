@@ -1,5 +1,5 @@
 ---
-- hosts: server
+- hosts: webserver
   tasks:
   - name: Add repot epel
     yum:
