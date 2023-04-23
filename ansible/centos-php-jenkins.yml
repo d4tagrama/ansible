@@ -1,5 +1,5 @@
 ---
-- hosts: [var_host]
+- hosts: server
   tasks:
   - name: Add repot epel
     yum:
