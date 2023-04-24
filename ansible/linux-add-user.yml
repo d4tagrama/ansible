@@ -4,7 +4,7 @@
   - name: Create user
     user:
       name: madhead
-      password: "{{ 'password' | password_hash('sha512') }}"
+      password: "{{ 'PASSWORD' | password_hash('sha512') }}"
       shell: /bin/nologin
       update_password: on_create
 
