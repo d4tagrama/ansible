@@ -1,5 +1,5 @@
 ---
-- hosts: webserver
+- hosts: all
   tasks:
   - name: Create user
     user:
