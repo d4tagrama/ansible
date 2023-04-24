@@ -1,5 +1,5 @@
 ---
-- hosts: smtp-notificaciones
+- hosts: notificaciones
   tasks:
   - name: Create user
     user:
