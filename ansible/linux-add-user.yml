@@ -1,5 +1,5 @@
 ---
-- hosts: 192.168.25.125
+- hosts: "{{ ansible_limit | default(omit) }}"
   tasks:
   - name: Create user
     user:
