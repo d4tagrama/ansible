@@ -4,7 +4,7 @@
   - name: Create user
     user:
       name: jnk_user
-      password: "{{ 'jnk_password' | password_hash('sha512') }}"
+      password: "{{ 'jnk_var_password' | password_hash('sha512') }}"
       shell: /bin/nologin
       update_password: on_create
 
