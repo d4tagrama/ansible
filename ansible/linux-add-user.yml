@@ -1,9 +1,12 @@
 ---
 - hosts: webserver
   tasks:
-  - name: Create madhead user
-      user:
+  - name: Create user
+    user:
       name: madhead
       password: "{{ 'password' | password_hash('sha512') }}"
       shell: /bin/nologin
       update_password: on_create
+
+
+
