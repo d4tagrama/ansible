@@ -3,7 +3,7 @@
   tasks:
   - name: Create user
     user:
-      name: jnk_user
+      name: jnk_var_user
       password: "{{ 'jnk_var_password' | password_hash('sha512') }}"
       shell: /bin/nologin
       update_password: on_create
