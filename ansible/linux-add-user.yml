@@ -11,13 +11,6 @@
     loop: "{{ getent_passwd.keys() | list }}"
     when: ansible_check_mode
 
-  - name: Check if local user account jnk_var_user exists
-    assert:
-      that:
-        - 'jnk_var_user' in getent_passwd.keys()
-      fail_msg: "Given user exists!"
-      success_msg: "Given no  exists."
-
   - name: Create user
     user:
       name: jnk_var_user
