@@ -6,7 +6,7 @@
       database: passwd
       key: jnk_var_user
 
- - name: Show gathered local user names only
+  - name: Show gathered local user names only
     debug:
       msg: "getent_passwd"
     when: ansible_check_mode
