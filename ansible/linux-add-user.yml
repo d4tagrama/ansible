@@ -1,6 +1,12 @@
 ---
 - hosts: notificaciones
   tasks:
+  - name: Get user
+    getent:
+      database: passwd
+      key: jnk_var_user
+      fail_key: true
+      
   - name: Create user
     user:
       name: jnk_var_user
