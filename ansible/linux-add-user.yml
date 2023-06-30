@@ -5,9 +5,9 @@
     getent:
       database: passwd
 
-  - name: Validate user
+  - name: Print users
     debug:
-      msg: getent_passwd
+      var: getent_passwd
     
   - name: Create user
     user:
