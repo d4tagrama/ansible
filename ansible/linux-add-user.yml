@@ -4,12 +4,10 @@
   - name: Get user
     getent:
       database: passwd
-      key: jnk_var_user
 
   - name: Validate user
-    fail:
-      msg: Eser already exist
-    when: getent_password is not defined 
+    debug:
+      msg: getent_passwd
     
   - name: Create user
     user:
