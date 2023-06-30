@@ -5,7 +5,7 @@
     getent:
       database: passwd
       key: jnk_var_user
-      fail_key: true
+      fail_key: false
       
   - name: Create user
     user:
