@@ -4,11 +4,11 @@
   - name: Get user
     getent:
       database: passwd
-      
-  - name: Show gathered local user names only
+      key: jnk_var_user
+
+ - name: Show gathered local user names only
     debug:
-      msg: "{{ item }}"
-    loop: "{{ getent_passwd.keys() | list }}"
+      msg: "getent_passwd"
     when: ansible_check_mode
 
   - name: Create user
