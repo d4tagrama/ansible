@@ -24,6 +24,8 @@ Add IP address of all hosts to `/etc/ansible/hosts`  and  execute the playbook y
 - Install php 7.2:
 
 		ansible-playbook -u usradm centos-php.yml  --extra-vars '{"major_version":7,"enablerepo":remi-php72}'
+ - Install php 7.3:
+ 
 		ansible-playbook -u usradm centos-php.yml  --extra-vars '{"major_version":7,"enablerepo":remi-php73}'
 
 
