@@ -34,7 +34,6 @@
         - php-curl
       state: present     
       enablerepo: "remi,jnk_var_enablerepo"
-
        
   - name: Install httpd (Apache)
     yum:
@@ -58,9 +57,6 @@
     ansible.builtin.service:
       name: httpd
       state: started
-
-    
-
 
   - name: Set timezone to America/Merida
     timezone:
